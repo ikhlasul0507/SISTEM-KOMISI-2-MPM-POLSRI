@@ -1,0 +1,1 @@
+sidang umum
