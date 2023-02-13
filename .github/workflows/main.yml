@@ -1,0 +1,20 @@
+name: Example
+
+on:
+  push:
+    branches: [ master, Development ]
+jobs:
+  Make:
+    runs-on: ubuntu-latest
+    name: Make ${{matrix.work}} ${{matrix.arch}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+      - name: down
+        uses: MitchWind/ftp-deploy@master
+        with:
+            server: "v0.ftp.upyun.com"
+            username: "mofeng64/wind-openwrt"
+            password: ${{ secrets.FTP_PASSWOD }}
+            local_dir: "targets"
+            server_dir: "test"
